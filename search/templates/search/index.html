@@ -1,0 +1,198 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Search YouTube</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href={% static 'search/album.css' %} rel="stylesheet">
+</head>
+
+<body>
+
+    <main role="main">
+
+        <section class="jumbotron text-center ">
+            <div class="container">
+                <!----<h1 class="jumbotron-heading display-2 bg-light">Search YouMini</h1>-->
+                <h1 class="display-2 ">YouMini!!</h1>
+                <p class="lead text-muted">Get the top nine results on YouTube for your query!</p>
+                <form method="POST">
+                    <div class="input-group mb-3">
+                        {% csrf_token %}
+                        <input type="text" name="search" class="form-control" aria-label="Username">
+
+                    </div>
+                    <p>
+                        <button value="search" name="submit" type="submit" class="btn btn-info my-2">YouMini
+                            Search</button>
+                        <button value="lucky" name="submit" type="submit" class="btn btn-success my-2">Direct Jump
+                            youmini!</button>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    {% for video in videos %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice" focusable="false"
+                                role="img" aria-label="Placeholder: Thumbnail">
+                            <div class="card-body">
+                                <p class="card-text">{{ video.title }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" href="{{ video.url }}"
+                                            class="btn btn-sm btn-outline-info">View</a>
+                                    </div>
+                                    <small class="text-muted">{{ video.duration }} mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                src="https://cdn.dribbble.com/users/94666/screenshots/2151172/tfpfinal-logo.png?compress=1&resize=400x300"
+                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                aria-label="Placeholder: Thumbnail">
+                            <div class="card-body">
+                                <p class="card-text">Video title</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-info">View</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                src="https://cdn.dribbble.com/users/94666/screenshots/2151172/tfpfinal-logo.png?compress=1&resize=400x300"
+                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                aria-label="Placeholder: Thumbnail">
+                            <div class="card-body">
+                                <p class="card-text">Video title</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-info">View</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                src="https://cdn.dribbble.com/users/94666/screenshots/2151172/tfpfinal-logo.png?compress=1&resize=400x300"
+                                preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                                aria-label="Placeholder: Thumbnail">
+                            <div class="card-body">
+                                <p class="card-text">Video title</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-info">View</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-secondary fluid-container">
+        <div class="mid_banner">
+            <!-- to be created later-->
+            <div class="container">
+
+                <div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Contact us</h4>
+                            <p>phone no: 7624561890</p>
+                            <p>email: youmini@gmail.com
+                                <br>
+                                instagram: youmini
+                                <br>
+                                facebook:youmini222
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                            <h4>Copyrights</h4>
+                            <p>no copy rights
+                                <br>
+                                still for the sake of favour
+                                <br>
+                                All Rights Reserved
+                                <br>
+                                copyrights &copy 2021
+                            </p>
+
+                        </div>
+                        <div class="col-md-4">
+                            <h4>About</h4>
+                            <p>it's a simple api based search system made with django. it just shows top 12 youtube
+                                vedios
+                                of a particular topic which you search. the name is also derived from youtube.. for more
+                                information contact internet or me if required.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

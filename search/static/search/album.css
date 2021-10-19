@@ -1,0 +1,49 @@
+@import "bourbon";
+
+@import url(https://fonts.googleapis.com/css?family=Gafata|Montez|Averia+Sans+Libre|Vampiro+One);
+
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Montez';
+    color: lighten(black, 20%);
+  }
+
+  div h4{
+      font-family: 'Montez';
+      color: lighten(black, 20%);
+    
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  footer p {
+    margin-bottom: .25rem;
+  }
